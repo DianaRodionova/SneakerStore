@@ -1,0 +1,30 @@
+$white: #FFFFFF;
+$black: #000000;
+$solitude: #E7F6FF;
+$silver-chalice: #9D9D9D;
+$scorpion: #5C5C5C;
+$gallery: #EAEAEA;
+$spring-wood: #F4EFE9;
+$conifer: #A5D364;
+$sushi: #8BB43C;
+$concrete: #F3F3F3;
+$silver: #C4C4C4;
+$silver-two: #BDBDBD;
+$alto: #DFDFDF;
+$alabaster: #F8F8F8;
+$curious-blue: #34AADD;
+
+/**
+ * Fonts
+ */
+$font-family-default: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+$font-family-custom: 'Inter';
+$font-family: $font-family-custom, $font-family-default;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+
+$page-min-width: 356px;

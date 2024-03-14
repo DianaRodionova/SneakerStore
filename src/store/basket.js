@@ -77,7 +77,7 @@ export const useBasketStore = defineStore('basket', () => {
   async function createOrder() {
     try {
       const response = await axios.post('https://718221a4b6e751d3.mokky.dev/orders', {items: sneakers.value, sum: sum.value});
-      sneakers.forEach((item) => { deleteSneakers(item.id, item.parentId); });
+      sneakers.value.forEach((item) => { deleteSneakers(item.id, item.parentId); });
     }
     catch (e) {
       onShowSnackbar({text: 'Не удалось оформить заказ', error: true});

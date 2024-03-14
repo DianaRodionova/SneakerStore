@@ -3,6 +3,7 @@
   import { RouterView } from 'vue-router';
   import Basket from '@/components/Basket.vue';
   import Header from '@/components/Header.vue';
+  import Snackbar from '@/components/Snackbar.vue';
 
   const basketOpen = ref(false);
   const snaсkbarShow = ref(false);
@@ -16,13 +17,25 @@
     basketOpen.value = false;
   };
 
-  provide('basketActions', {openBasket, closeBasket});
+  const onShowSnackbar = (item) => {
+    snaсkbarItem.value = item;
+    snaсkbarShow.value = true;
+  };
+
+  const onHideSnackbar = () => {
+    snaсkbarShow.value = false;
+  };
+
+  provide('basketActions', {openBasket, closeBasket});  
+  provide('snaсkbar', {onShowSnackbar, onHideSnackbar}); 
 </script>
 
 <template>
   <div class="app">
     <Basket v-if="basketOpen" />
 
+    <Snackbar v-if="snaсkbarShow" :error="snaсkbarItem.error" :text="snaсkbarItem.text" />
+      
     <Header />
 
     <main class="app__main">

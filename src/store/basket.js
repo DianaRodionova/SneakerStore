@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import { useRootStore } from './index';
@@ -10,6 +10,8 @@ export const useBasketStore = defineStore('basket', () => {
   const status = ref(IDLE);
   const sum = ref(0);
   const tax = ref(0);
+
+  const { onShowSnackbar } = inject('snaсkbar');
 
   function calcAmount() {
     sum.value = sneakers.value.reduce(function(sum, current) {
@@ -52,9 +54,10 @@ export const useBasketStore = defineStore('basket', () => {
       calcAmount();
       const rootStore = useRootStore();
       rootStore.updateSneakers(item.id, {isAdded: true});
+      onShowSnackbar({text: 'Товар добавлен в корзину', error: false});
     }
     catch (e) {
-      alert(e.message);
+      onShowSnackbar({text: 'Не удалось добавить в корзину', error: true});
     }
   };
 
@@ -67,7 +70,7 @@ export const useBasketStore = defineStore('basket', () => {
       rootStore.updateSneakers(parentId, {isAdded: false});
     }
     catch (e) {
-      alert(e.message);
+      onShowSnackbar({text: 'Не удалось удалить товар', error: true});
     }
   };
 
@@ -77,7 +80,7 @@ export const useBasketStore = defineStore('basket', () => {
       sneakers.forEach((item) => { deleteSneakers(item.id, item.parentId); });
     }
     catch (e) {
-      alert(e.message);
+      onShowSnackbar({text: 'Не удалось оформить заказ', error: true});
     }
   };
 

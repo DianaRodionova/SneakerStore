@@ -1,11 +1,28 @@
 <script setup>
+  import { ref, provide } from 'vue';
   import { RouterView } from 'vue-router';
-
+  import Basket from '@/components/Basket.vue';
   import Header from '@/components/Header.vue';
+
+  const basketOpen = ref(false);
+  const snaсkbarShow = ref(false);
+  const snaсkbarItem = ref({});
+
+  const openBasket = () => {
+    basketOpen.value = true;
+  };
+
+  const closeBasket = () => {
+    basketOpen.value = false;
+  };
+
+  provide('basketActions', {openBasket, closeBasket});
 </script>
 
 <template>
   <div class="app">
+    <Basket v-if="basketOpen" />
+
     <Header />
 
     <main class="app__main">

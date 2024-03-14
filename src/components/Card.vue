@@ -1,5 +1,6 @@
 <script setup>
   import { useRootStore } from '@/store/index';
+  import { useBasketStore } from '@/store/basket';
   import SquareButton from '@/components/SquareButton.vue';
   
   const props = defineProps({
@@ -10,6 +11,7 @@
   });
 
   const rootStore = useRootStore();
+  const basketStore = useBasketStore();
 
 </script>
 
@@ -31,7 +33,7 @@
 
     <p class="card__price">{{ card.price }} руб.</p>
 
-    <SquareButton v-if="!card.isAdded" class="card__add">
+    <SquareButton v-if="!card.isAdded" class="card__add" @click="basketStore.addToBasket(card)">
       <img src="/plus.svg" width="11" height="11" alt="Серый плюс">
     </SquareButton>
 

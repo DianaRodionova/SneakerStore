@@ -1,8 +1,12 @@
 <script setup>
-  import { ref } from 'vue';
+  import { ref, inject, computed } from 'vue';
+  import { useBasketStore } from '@/store/basket';
   import HeaderLink from '@/components/HeaderLink.vue';
 
-  const sum = ref(0);
+  const basketStore = useBasketStore();
+  basketStore.getSneakers();
+
+  const sum = computed(() => basketStore.sum);
   const links = ref([
     {
       name: 'Закладки',
@@ -15,6 +19,8 @@
       icon: '/profile.svg',
     },
   ]);
+
+  const { openBasket } = inject('basketActions');
 </script>
 
 <template>
@@ -32,7 +38,7 @@
     <nav class="header__nav">
       <ul class="header__list">
         <li class="header__item">
-          <button class="header__basket" type="button">
+          <button class="header__basket" type="button" @click="openBasket">
             <img class="header__basket-icon" src="/cart.svg" width="18" height="18" alt="Корзина">
 
             <span class="header__basket-text">{{ sum }} руб.</span>

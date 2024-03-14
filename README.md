@@ -1,5 +1,7 @@
 # sneaker-store
 
+Сайт для покупки кроссовок, товар можно добавлять в избранное, в профиле смотреть список заказов.
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup

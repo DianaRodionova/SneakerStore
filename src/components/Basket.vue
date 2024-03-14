@@ -3,6 +3,7 @@
   import { storeToRefs } from 'pinia';
   import { useBasketStore } from '@/store/basket';
   import {LOADING, FAILED} from '@/utils/statuses';
+  import Loader from '@/components/Loader.vue';
   import BasketCard from '@/components/BasketCard.vue';
   import GreenLink from '@/components/GreenLink.vue';
   import Stub from '@/components/Stub.vue';
@@ -41,7 +42,7 @@
       </div>
 
       <div v-if="status === LOADING" class="basket__loader">
-        загрузка...
+        <Loader />
       </div>
 
       <Stub 

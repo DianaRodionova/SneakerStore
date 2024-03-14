@@ -2,6 +2,7 @@
   import { storeToRefs } from 'pinia';
   import { useRootStore } from '@/store/index';
   import { LOADING, FAILED } from '@/utils/statuses';
+  import Loader from '@/components/Loader.vue';
   import Slide from '@/components/Slide.vue';
   import Sort from '@/components/Sort.vue';
   import Search from '@/components/Search.vue';
@@ -27,7 +28,7 @@
     </div>
 
     <div v-if="status === LOADING" class="home__loader">
-      Загрузка...
+      <Loader />
     </div>
 
     <div v-else-if="status === FAILED">Не удалось загрузить карточки товаров</div>

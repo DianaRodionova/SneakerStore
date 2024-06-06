@@ -22,27 +22,27 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-  .square-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.square-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border-radius: 7px;
-    border: 1px solid $alabaster;
-    background: $white;
+  border-radius: 7px;
+  border: 1px solid $alabaster;
+  background: $white;
 
-    &.small {
-      width: 32px;
-      height: 32px;
-    }
-
-    &.medium {
-      width: 35px;
-      height: 35px;
-    }
-
-    &:hover {
-      background: $alabaster;
-    }
+  &.small {
+    width: 32px;
+    height: 32px;
   }
+
+  &.medium {
+    width: 35px;
+    height: 35px;
+  }
+
+  &:hover {
+    background: $alabaster;
+  }
+}
 </style>

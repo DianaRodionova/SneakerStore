@@ -1,5 +1,6 @@
 <script setup>
   import BuyButton from '@/components/BuyButton.vue';
+  import { useBasketStore } from '@/store/basket';
 
   const sneakers = {
                       id: 13,
@@ -7,6 +8,8 @@
                       price: 17000,
                       imageUrl: '/sneakers/sneakers-13.jpg',
                     };
+                    
+  const basketStore = useBasketStore();
 </script>
 
 <template>
@@ -16,7 +19,7 @@
 
       <h2 class="slide__title">Stan Smith, <span class="slide__title-accent">Forever!</span></h2>
 
-      <BuyButton />
+      <BuyButton @click="basketStore.addToBasket(sneakers)"/>
     </div>
 
     <img src="/frog.png" width="641" height="300" alt="Лягушка и кроссовки">

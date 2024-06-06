@@ -1,10 +1,10 @@
 <script setup>
-  const props = defineProps({
-    label: {
-      type: String,
-      default: 'Загрузка, пожалуйста подождите.',
-    },
-  });
+const props = defineProps({
+  label: {
+    type: String,
+    default: 'Загрузка, пожалуйста подождите.',
+  },
+})
 </script>
 
 <template>

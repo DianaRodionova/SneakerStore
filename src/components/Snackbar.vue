@@ -28,31 +28,31 @@
 </template>
 
 <style lang="scss" scoped>
-  .snackbar {
-    position: fixed;
-    top: 50px;
-    left: 50%;
+.snackbar {
+  position: fixed;
+  top: 50px;
+  left: 50%;
 
-    z-index: 100;
+  z-index: 100;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    padding: 20px;
+  padding: 20px;
 
-    border-radius: 6px;
-    background-color: #4E5D75;
+  border-radius: 6px;
+  background-color: #4E5D75;
 
-    transform: translateX(-50%);
+  transform: translateX(-50%);
 
-    &__icon {
-      flex-shrink: 0;
+  &__icon {
+    flex-shrink: 0;
 
-      margin-right: 10px;
-    }
-
-    &__text {
-      color: $white;
-    }
+    margin-right: 10px;
   }
+
+  &__text {
+    color: $white;
+  }
+}
 </style>

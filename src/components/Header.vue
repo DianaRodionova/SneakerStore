@@ -30,7 +30,7 @@
 
       <div class="header__wrapper">
         <h1 class="header__title">DIA SNEAKERS</h1>
-        
+
         <p class="header__text">Магазин лучших кроссовок</p>
       </div>
     </a>

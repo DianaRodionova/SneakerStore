@@ -1,10 +1,10 @@
 <script setup>
-  const props = defineProps({
-    link: {
-      type: Object,
-      required: true,
-    },
-  });
+const props = defineProps({
+  link: {
+    type: Object,
+    required: true,
+  },
+})
 </script>
 
 <template>

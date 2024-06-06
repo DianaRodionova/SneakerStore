@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import {IDLE, LOADING, SUCCEEDED, FAILED} from '@/utils/statuses';
@@ -8,6 +8,8 @@ export const useRootStore = defineStore('root', () => {
   const sneakers = ref([]);
   const favoriteSneakers = ref([]);
   const status = ref(IDLE);
+
+  const { onShowSnackbar } = inject('snaсkbar');
 
   function sneakersUpdated(id, data) {
     const item = sneakers.value.find((item) => item.id === id);
@@ -33,7 +35,7 @@ export const useRootStore = defineStore('root', () => {
       sneakersUpdated(id, data);
     }
     catch (e) {
-      alert(e.message);
+      onShowSnackbar({text: 'Не удалось добавить в закладки', error: true});
     }
   };
 
@@ -43,7 +45,7 @@ export const useRootStore = defineStore('root', () => {
       sneakers.value = data;
     }
     catch (e) {
-      alert(e.message);
+      onShowSnackbar({text: 'Не удалось отсортировать', error: true});
     }
   };
 
@@ -53,7 +55,7 @@ export const useRootStore = defineStore('root', () => {
       sneakers.value = data;
     }
     catch (e) {
-      alert(e.message);
+      onShowSnackbar({text: 'Не удалось найти', error: true});
     }
   };
 
